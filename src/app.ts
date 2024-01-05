@@ -1,16 +1,17 @@
 import express, { Application, Request, Response } from 'express';
 import cors from "cors"
-// import routers from './routes';
+import { inningsRoutes } from './app/innings/innings.routes';
+
 const app: Application = express()
 
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-// app.use('/v1', routers)
+app.use('/run', inningsRoutes)
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Teaching Torch backend started')
+  res.send('CircMania backend started')
 })
 
 export default app;
